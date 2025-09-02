@@ -18,19 +18,19 @@
     "portfolio",
     "demo"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Kaiky <kaiky@example.com>",
   "license": "MIT",
   "devDependencies": {
     "web-ext": "^7.6.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/privacy-data-modifier.git"
+    "url": "https://github.com/kaikyPx/privacy-data-modifier.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/privacy-data-modifier/issues"
+    "url": "https://github.com/kaikyPx/privacy-data-modifier/issues"
   },
-  "homepage": "https://github.com/yourusername/privacy-data-modifier#readme",
+  "homepage": "https://github.com/kaikyPx/privacy-data-modifier#readme",
   "engines": {
     "node": ">=16.0.0"
   }

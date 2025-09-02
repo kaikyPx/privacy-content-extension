@@ -3,8 +3,8 @@
   "name": "Privacy Data Modifier",
   "version": "1.0.0",
   "description": "Chrome extension to modify statistics card data on web pages for portfolio demonstrations",
-  "author": "Your Name",
-  "homepage_url": "https://github.com/yourusername/privacy-data-modifier",
+  "author": "Kaiky",
+  "homepage_url": "https://github.com/kaikyPx/privacy-data-modifier",
   "permissions": [
     "storage",
     "activeTab",

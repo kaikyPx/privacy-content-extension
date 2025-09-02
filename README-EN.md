@@ -2,9 +2,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue.svg)](https://chrome.google.com/webstore)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/yourusername/privacy-data-modifier)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/kaikyPx/privacy-data-modifier)
 
 A Chrome extension that allows you to visually modify statistics card data on web pages, ideal for demonstrations and account manager portfolios.
+
+![Privacy Data Modifier Extension](assets/image.png)
 
 ## ✨ Features
 
