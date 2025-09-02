@@ -1,5 +1,5 @@
 {
-  "name": "privacy-data-modifier-extension",
+  "name": "privacy-content-extension",
   "version": "1.0.0",
   "description": "Chrome extension to modify statistics card data on web pages",
   "main": "content.js",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaikyPx/privacy-data-modifier.git"
+    "url": "https://github.com/kaikyPx/privacy-content-extension.git"
   },
   "bugs": {
-    "url": "https://github.com/kaikyPx/privacy-data-modifier/issues"
+    "url": "https://github.com/kaikyPx/privacy-content-extension/issues"
   },
-  "homepage": "https://github.com/kaikyPx/privacy-data-modifier#readme",
+  "homepage": "https://github.com/kaikyPx/privacy-content-extension#readme",
   "engines": {
     "node": ">=16.0.0"
   }
