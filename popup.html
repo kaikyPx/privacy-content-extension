@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Dados</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 420px;
+      min-height: 600px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header h1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .content {
+      padding: 20px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .section {
+      margin-bottom: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .section-title .icon {
+      margin-right: 8px;
+      font-size: 16px;
+    }
+
+    .field-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: flex-end;
+    }
+
+    .field-group {
+      flex: 1;
+    }
+
+    .field-group.full-width {
+      flex: 1;
+    }
+
+    .field-group.half-width {
+      flex: 0.5;
+    }
+
+    .field-group.third-width {
+      flex: 0.33;
+    }
+
+    .input-group {
+      margin-bottom: 0;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 11px;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 8px 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .input-group input:hover,
+    .input-group select:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
+    }
+
+    .actions {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn.secondary {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .btn.secondary:hover {
+      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 12px;
+      opacity: 0.8;
+      min-height: 20px;
+    }
+
+    .success {
+      color: #4ade80;
+    }
+
+    .error {
+      color: #f87171;
+    }
+
+    /* Scrollbar personalizada */
+    .content::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .content::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .content::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section {
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    .section:nth-child(5) { animation-delay: 0.5s; }
+    .section:nth-child(6) { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🔄 Modificar Dados</h1>
+    <p>Configure os valores dos cards da página</p>
+  </div>
+
+  <div class="content">
+    <!-- Seção Financeira -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">💰</span>
+        Dados Financeiros
+      </div>
+      
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Liberado</label>
+            <input type="text" id="liberado-value" placeholder="R$ 0,00" value="R$ 320,08">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="liberado-desc" placeholder="Descrição" value="Valor disponível para saque">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Faturamento</label>
+            <input type="text" id="faturamento-value" placeholder="R$ 0,00" value="R$ 0,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="faturamento-desc" placeholder="Descrição" value="Hoje">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Total</label>
+            <input type="text" id="total-value" placeholder="R$ 0,00" value="R$ 320,08">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="total-desc" placeholder="Descrição" value="Saldo liberado + a liberar">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Vendas -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">🛒</span>
+        Vendas Nacionais
+      </div>
+      
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Hoje</label>
+            <input type="text" id="vendas-hoje-value" placeholder="R$ 0,00" value="R$ 0,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-hoje-desc" placeholder="Descrição" value="Hoje">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>No Mês</label>
+            <input type="text" id="vendas-mes-value" placeholder="R$ 0,00" value="R$ 160,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-mes-desc" placeholder="Descrição" value="No mês">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Total Histórico</label>
+            <input type="text" id="vendas-total-value" placeholder="R$ 0,00" value="R$ 86.776,12">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-total-desc" placeholder="Descrição" value="Total faturamento histórico">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Vendas Internacionais -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">🌍</span>
+        Vendas Internacionais
+      </div>
+      
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Hoje</label>
+            <input type="text" id="vendas-int-hoje-value" placeholder="R$ 0,00" value="R$ 0,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-int-hoje-desc" placeholder="Descrição" value="Hoje">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>No Mês</label>
+            <input type="text" id="vendas-int-mes-value" placeholder="R$ 0,00" value="R$ 0,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-int-mes-desc" placeholder="Descrição" value="No mês">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Total Histórico</label>
+            <input type="text" id="vendas-int-total-value" placeholder="R$ 0,00" value="R$ 0,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="vendas-int-total-desc" placeholder="Descrição" value="Total faturamento histórico">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Tops -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">🏆</span>
+        Top Vendas
+      </div>
+      
+      <div class="field-row">
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Top 1</label>
+            <input type="text" id="top1-value" placeholder="R$ 0,00" value="R$ 1.229,92">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Data</label>
+            <input type="text" id="top1-date" placeholder="DD/MM/AAAA" value="02/01/2025">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="top1-desc" placeholder="Descrição" value="Top 1">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Top 2</label>
+            <input type="text" id="top2-value" placeholder="R$ 0,00" value="R$ 1.170,00">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Data</label>
+            <input type="text" id="top2-date" placeholder="DD/MM/AAAA" value="08/06/2025">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="top2-desc" placeholder="Descrição" value="Top 2">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Top 3</label>
+            <input type="text" id="top3-value" placeholder="R$ 0,00" value="R$ 1.098,48">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Data</label>
+            <input type="text" id="top3-date" placeholder="DD/MM/AAAA" value="05/03/2025">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="top3-desc" placeholder="Descrição" value="Top 3">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Projeções -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">📊</span>
+        Projeções
+      </div>
+      
+                           <div class="field-row">
+          <div class="field-group">
+            <div class="input-group">
+              <label>Total</label>
+              <input type="text" id="projecao1-value" placeholder="R$ 0,00" value="R$ 500,00">
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <div class="input-group">
+              <label>Média Dia</label>
+              <input type="text" id="projecao2-value" placeholder="R$ 0,00" value="R$ 750,00">
+            </div>
+          </div>
+        </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Projeção</label>
+            <input type="text" id="projecao3-value" placeholder="R$ 0,00" value="R$ 1.200,00">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Porcentagem</label>
+            <input type="text" id="projecao3-porcentagem" placeholder="+8,2%" value="+8,2%">
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Cor</label>
+            <select id="projecao3-cor">
+              <option value="green">Verde</option>
+              <option value="red">Vermelho</option>
+              <option value="blue">Azul</option>
+              <option value="orange">Laranja</option>
+              <option value="purple">Roxo</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group third-width">
+          <div class="input-group">
+            <label>Seta</label>
+            <select id="projecao3-seta">
+              <option value="true">↗️ Cima</option>
+              <option value="false">↘️ Baixo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção Assinantes -->
+    <div class="section">
+      <div class="section-title">
+        <span class="icon">👥</span>
+        Assinantes
+      </div>
+      
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Total</label>
+            <input type="text" id="assinantes-total-value" placeholder="0" value="5.000">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="assinantes-total-desc" placeholder="Descrição" value="Total">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Ativos</label>
+            <input type="text" id="assinantes-ativos-value" placeholder="0" value="50">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="assinantes-ativos-desc" placeholder="Descrição" value="Ativos">
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <div class="input-group">
+            <label>Faturamento</label>
+            <input type="text" id="assinantes-faturamento-value" placeholder="0%" value="99,9 %">
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="input-group">
+            <label>Descrição</label>
+            <input type="text" id="assinantes-faturamento-desc" placeholder="Descrição" value="Faturamento">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="apply-btn">✅ Aplicar Modificações</button>
+    <button class="btn secondary" id="reset-btn">🔄 Restaurar Padrão</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

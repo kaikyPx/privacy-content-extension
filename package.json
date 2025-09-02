@@ -1,0 +1,37 @@
+{
+  "name": "privacy-data-modifier-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension to modify statistics card data on web pages",
+  "main": "content.js",
+  "scripts": {
+    "build": "web-ext build --source-dir=. --artifacts-dir=dist",
+    "lint": "web-ext lint",
+    "start": "web-ext run --source-dir=.",
+    "test": "echo \"No tests specified\" && exit 0",
+    "package": "web-ext build --source-dir=. --artifacts-dir=dist --filename=privacy-data-modifier.zip"
+  },
+  "keywords": [
+    "chrome-extension",
+    "privacy",
+    "data-modifier",
+    "statistics",
+    "portfolio",
+    "demo"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "web-ext": "^7.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/privacy-data-modifier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/privacy-data-modifier/issues"
+  },
+  "homepage": "https://github.com/yourusername/privacy-data-modifier#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
