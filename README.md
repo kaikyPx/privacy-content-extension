@@ -2,79 +2,80 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue.svg)](https://chrome.google.com/webstore)
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/kaikyPx/privacy-data-modifier)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/kaikyPx/privacy-content-extension)
 
-Uma extensão do Chrome que permite modificar visualmente os dados dos cards de estatísticas em páginas web, ideal para demonstrações e portfólios de gerenciadores de contas.
+A Chrome extension that allows you to visually modify statistics card data on web pages, ideal for demonstrations and portfolios of account managers.
 
-![Privacy Data Modifier Extension](assets/image.png)
+![Privacy Content Extension](assets/image.png)
 
-## ✨ Características
+## ✨ Features
 
-- **Modificação Visual**: Altera dados de cards de estatísticas em tempo real
-- **Interface Intuitiva**: Popup com interface moderna e responsiva
-- **Persistência**: Dados mantidos mesmo após recarregar a página
-- **Múltiplas Seções**: Suporte para dados financeiros, vendas, tops, projeções e assinantes
-- **Validação**: Sistema robusto de validação de dados
-- **Loading States**: Feedback visual durante as modificações
+- **Visual Modification**: Alters statistics card data in real-time
+- **Intuitive Interface**: Modern and responsive popup interface
+- **Persistence**: Data maintained even after page reload
+- **Multiple Sections**: Support for financial data, sales, tops, projections and subscribers
+- **Validation**: Robust data validation system
+- **Loading States**: Visual feedback during modifications
 
-## 🚀 Instalação
+## 🚀 Installation
 
-1. **Clone o repositório**:
+1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/privacy-data-modifier.git
-   cd privacy-data-modifier
+   git clone https://github.com/kaikyPx/privacy-content-extension.git
+   cd privacy-content-extension
    ```
 
-2. **Abra o Chrome** e vá para `chrome://extensions/`
+2. **Open Chrome** and go to `chrome://extensions/`
 
-3. **Ative o "Modo do desenvolvedor"** no canto superior direito
+3. **Enable "Developer mode"** in the top right corner
 
-4. **Clique em "Carregar sem compactação"** e selecione a pasta do projeto
+4. **Click "Load unpacked"** and select the project folder
 
-5. **A extensão será instalada** e aparecerá na barra de ferramentas
+5. **The extension will be installed** and appear in the toolbar
 
-## 📖 Como Usar
+## 📖 How to Use
 
-1. Navegue até a página que contém os cards de estatísticas
-2. Clique no ícone da extensão na barra de ferramentas
-3. Configure os dados desejados no popup
-4. Clique em "✅ Aplicar Modificações"
-5. Os dados serão atualizados instantaneamente na página
+1. Navigate to the page containing the statistics cards
+2. Click the extension icon in the toolbar
+3. Configure the desired data in the popup
+4. Click "✅ Apply Modifications"
+5. Data will be updated instantly on the page
 
-## 🏗️ Estrutura do Projeto
+## 🏗️ Project Structure
 
 ```
-privacy-data-modifier/
-├── manifest.json          # Configuração da extensão
-├── content.js            # Script principal de modificação
-├── popup.html            # Interface do popup
-├── popup.js              # Lógica do popup
-├── README.md             # Documentação principal
-├── LICENSE               # Licença MIT
-└── .gitignore            # Arquivos ignorados pelo Git
+privacy-content-extension/
+├── manifest.json          # Extension configuration
+├── content.js            # Main modification script
+├── popup.html            # Popup interface
+├── popup.js              # Popup logic
+├── README.md             # Main documentation
+├── LICENSE               # MIT License
+└── .gitignore            # Git ignored files
 ```
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-- **JavaScript ES6+**: Lógica principal
-- **HTML5**: Estrutura da interface
-- **CSS3**: Estilização moderna
-- **Chrome Extensions API**: Integração com o navegador
-- **Manifest V3**: Última versão do sistema de extensões
+- **JavaScript ES6+**: Main logic
+- **HTML5**: Interface structure
+- **CSS3**: Modern styling
+- **Chrome Extensions API**: Browser integration
+- **Manifest V3**: Latest extension system version
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Suporte
+## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/privacy-data-modifier/issues)
-- **Email**: seuemail@exemplo.com
+- **Issues**: [GitHub Issues](https://github.com/kaikyPx/privacy-content-extension/issues)
+- **Email**: kaikyg17@gmail.com
+- **WhatsApp**: +55 (11) 94904-3711
 
 ---
 
 <div align="center">
 
-**⭐ Se este projeto te ajudou, considere dar uma estrela! ⭐**
+**⭐ If this project helped you, consider giving it a star! ⭐**
 
 </div>

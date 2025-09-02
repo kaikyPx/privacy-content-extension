@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Privacy Data Modifier",
+  "name": "Privacy Content Extension",
   "version": "1.0.0",
-  "description": "Chrome extension to modify statistics card data on web pages for portfolio demonstrations",
-  "author": "Kaiky",
-  "homepage_url": "https://github.com/kaikyPx/privacy-data-modifier",
+  "description": "A Chrome extension that allows you to visually modify statistics card data on web pages, ideal for demonstrations and portfolios of account managers",
+  "author": "Kaiky <kaikyg17@gmail.com>",
+  "homepage_url": "https://github.com/kaikyPx/privacy-content-extension",
   "permissions": [
     "storage",
     "activeTab",
@@ -19,7 +19,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Modificar Dados",
+    "default_title": "Modify Data",
     "default_icon": {
       "16": "icons/icon16.png",
       "32": "icons/icon32.png",
